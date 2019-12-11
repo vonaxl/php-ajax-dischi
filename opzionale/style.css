@@ -1,0 +1,18 @@
+.pad {
+  margin-top: 3rem;
+}
+body {
+  background: #1e2d3c;
+}
+#box {
+  background: #191919;
+}
+.cd {
+  background: #000;
+  padding: 1rem;
+  color: white;
+  margin: 1rem;
+}
+.cd img {
+  width: 80%;
+}
