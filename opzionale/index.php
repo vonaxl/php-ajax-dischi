@@ -14,6 +14,10 @@
     ?>
 <body>
     <div class="container pad">
+      <div class="row">
+        <input type="text" id="src" >
+        <button id="cerca">Cerca</button>
+      </div>
         <div id='box' class="row justify-content-center">
 
         </div>

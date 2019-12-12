@@ -1,12 +1,5 @@
-function printAlbum(album) {
-  var template = $("#template").html();
-  var compiled = Handlebars.compile(template);
-  var cd = album;
-  var compiledCd = compiled(cd);
-  $("#box").append(compiledCd);
-}
-
 function printData(elements) {
+  $("#box").empty();
   var template = $("#template").html();
   var compiled = Handlebars.compile(template);
   // var match = data;
@@ -30,14 +23,17 @@ function getData() {
     }
   });
 }
-function getData2() {
+function getData2(element) {
   $.ajax({
     url: "get1Cd.php",
+    data: {
+      author: element
+    },
     method: "GET",
     success: function(data) {
       console.log(data);
-      // printData(data);
-      printAlbum(data);
+      printData(data);
+      // printAlbum(data);
     },
     error: function(error) {
       console.log("error", error);
@@ -45,8 +41,15 @@ function getData2() {
   });
 }
 
+function cercaBtnClick() {
+  var input = $("#src").val();
+  console.log(input);
+  getData2(input);
+  $("#src").val("");
+}
 function init() {
   getData();
+  $("#cerca").on("click", cercaBtnClick);
 }
 
 $(document).ready(init);
